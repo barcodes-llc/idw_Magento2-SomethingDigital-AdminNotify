@@ -1,0 +1,21 @@
+{
+    "name": "somethingdigital/module-admin-notify",
+    "description": "A module to alert an email address on a successful/failed login attempt.",
+    "require": {
+        "php": "7.0.2|7.0.4|~7.0.6|~7.1.0|~7.2.0",
+        "magento/module-store": "~100.2.0",
+        "magento/module-user": "~101.0.0",
+        "magento/framework": "~101.0.0"
+    },
+    "type": "magento2-module",
+    "version": "0.1.0",
+    "license": [],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "SomethingDigital\\AdminNotify\\": ""
+        }
+    }
+}
