@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="admin_sd_adminnotify_failure_template" label="Admin New IP Login Failure" file="notify_failure.html" type="html" module="SomethingDigital_AdminNotify" area="adminhtml" />
+    <template id="admin_sd_adminnotify_success_template" label="Admin New IP Login Success" file="notify_success.html" type="html" module="SomethingDigital_AdminNotify" area="adminhtml" />
+</config>
