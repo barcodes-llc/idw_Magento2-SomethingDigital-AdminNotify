@@ -8,7 +8,7 @@
         "magento/framework": "~101.0.0"
     },
     "type": "magento2-module",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "license": [],
     "autoload": {
         "files": [
