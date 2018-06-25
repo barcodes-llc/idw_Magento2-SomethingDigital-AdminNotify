@@ -6,7 +6,6 @@ use SomethingDigital\AdminNotify\Api\HistoryManagementInterface;
 use SomethingDigital\AdminNotify\Model\ResourceModel\History as HistoryResource;
 use Magento\Framework\HTTP\PhpEnvironment\RemoteAddress;
 use Magento\Framework\Stdlib\DateTime\DateTime;
-use Magento\Framework\DB\Sql\ExpressionFactory;
 use Magento\Framework\UrlInterface;
 use Magento\User\Model\User;
 use Magento\Store\Model\StoreManagerInterface;
@@ -35,11 +34,6 @@ class HistoryManagement implements HistoryManagementInterface
     private $dateTime;
 
     /**
-     * @var ExpressionFactory
-     */
-    private $expressionFactory;
-
-    /**
      * @var StoreManagerInterface
      */
     private $storeManager;
@@ -54,7 +48,6 @@ class HistoryManagement implements HistoryManagementInterface
      * @param RemoteAddress $remoteAddress
      * @param HistoryResource $resource
      * @param DateTime $dateTime
-     * @param ExpressionFactory $expressionFactory
      * @param StoreManagerInterface $storeManager
      * @param \SomethingDigital\AdminNotify\Model\Notification $notification
      */
@@ -62,14 +55,12 @@ class HistoryManagement implements HistoryManagementInterface
         RemoteAddress $remoteAddress,
         HistoryResource $resource,
         DateTime $dateTime,
-        ExpressionFactory $expressionFactory,
         StoreManagerInterface $storeManager,
         Notification $notification
     ) {
         $this->remoteAddress = $remoteAddress;
         $this->resource = $resource;
         $this->dateTime = $dateTime;
-        $this->expressionFactory = $expressionFactory;
         $this->storeManager = $storeManager;
         $this->notification = $notification;
     }
@@ -95,7 +86,7 @@ class HistoryManagement implements HistoryManagementInterface
     private function updateHistoryRow($row)
     {
         $updates = [
-            History::KEY_ATTEMPTS => $this->expressionFactory->create(['expression' => History::KEY_ATTEMPTS . ' + 1']),
+            History::KEY_ATTEMPTS => new \Zend_Db_Expr(History::KEY_ATTEMPTS . ' + 1'),
             History::KEY_UPDATED_AT => History::KEY_UPDATED_AT,
         ];
 
