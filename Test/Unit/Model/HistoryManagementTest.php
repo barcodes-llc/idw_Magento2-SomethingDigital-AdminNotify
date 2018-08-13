@@ -2,7 +2,6 @@
 
 namespace SomethingDigital\AdminNotify\Test\Unit\Model;
 
-use Magento\Framework\DB\Sql\ExpressionFactory;
 use Magento\Framework\HTTP\PhpEnvironment\RemoteAddress;
 use Magento\Framework\Stdlib\DateTime\DateTime;
 use Magento\Store\Model\StoreManagerInterface;
@@ -29,9 +28,6 @@ class HistoryManagementTest extends TestCase
     /** @var DateTime|MockObject $dateTimeMock */
     private $dateTimeMock;
 
-    /** @var ExpressionFactory|MockObject $expressFactoryMock */
-    private $expressFactoryMock;
-
     /** @var StoreManagerInterface|MockObject $storeManagerMock */
     private $storeManagerMock;
 
@@ -52,7 +48,6 @@ class HistoryManagementTest extends TestCase
         $this->remoteAddressMock = $this->createMock(RemoteAddress::class);
         $this->resourceMock = $this->createMock(History::class);
         $this->dateTimeMock = $this->createMock(DateTime::class);
-        $this->expressFactoryMock = $this->createMock(ExpressionFactory::class);
         $this->storeManagerMock = $this->createMock(StoreManagerInterface::class);
         $this->userMock = $this->createMock(User::class);
         $this->adapterMock = $this->createMock(AdapterInterface::class);
@@ -71,7 +66,6 @@ class HistoryManagementTest extends TestCase
             $this->remoteAddressMock,
             $this->resourceMock,
             $this->dateTimeMock,
-            $this->expressFactoryMock,
             $this->storeManagerMock,
             $this->notificationMock
         );
