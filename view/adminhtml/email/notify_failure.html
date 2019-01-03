@@ -5,11 +5,7 @@
 "var ip":"Attempt Origin IP"
 } @-->
 
-{{template config_path="design/email/header_template"}}
-
 <p class="greeting">{{var name}},</p>
 <p>{{trans "Someone has attempted login for your account from a new IP:"}}</p>
 <p><strong>{{var ip}}</strong></p>
 <p>{{trans "The login failed.  If this wasn't you, someone may be trying to guess your password."}}</p>
-
-{{template config_path="design/email/footer_template"}}
