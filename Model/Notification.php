@@ -2,12 +2,10 @@
 
 namespace SomethingDigital\AdminNotify\Model;
 
-use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Mail\Template\TransportBuilder;
 use Magento\Framework\App\DeploymentConfig;
 use Magento\Framework\App\Area;
 use Magento\Store\Model\ScopeInterface;
-use Magento\Store\Model\Store;
 use Psr\Log\LoggerInterface;
 
 class Notification
@@ -33,27 +31,19 @@ class Notification
     private $logger;
 
     /**
-     * @var ScopeConfigInterface
-     */
-    private $scopeConfig;
-
-    /**
      * Notification constructor.
      * @param TransportBuilder $transportBuilder
      * @param DeploymentConfig $config
      * @param LoggerInterface $logger
-     * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
         TransportBuilder $transportBuilder,
         DeploymentConfig $config,
-        LoggerInterface $logger,
-        ScopeConfigInterface $scopeConfig
+        LoggerInterface $logger
     ) {
         $this->transportBuilder = $transportBuilder;
         $this->config = $config;
         $this->logger = $logger;
-        $this->scopeConfig = $scopeConfig;
     }
 
     /**
@@ -65,7 +55,7 @@ class Notification
     {
         $transport = $this->transportBuilder->addTo($user->getEmail())
             ->addCc($this->getCcAddresses())
-            ->setFrom($this->scopeConfig->getValue('trans_email/ident_general/email', ScopeInterface::SCOPE_STORE))
+            ->setFrom('general')
             ->setTemplateIdentifier($result ? self::TEMPLATE_SUCCESS : self::TEMPLATE_FAILURE)
             ->setTemplateOptions(['area' => Area::AREA_ADMINHTML, 'store' => Store::DEFAULT_STORE_ID])
             ->setTemplateVars(['name' => $user->getName(), 'ip' => $ip])
