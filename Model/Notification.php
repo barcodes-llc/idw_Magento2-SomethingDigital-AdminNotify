@@ -5,7 +5,7 @@ namespace SomethingDigital\AdminNotify\Model;
 use Magento\Framework\Mail\Template\TransportBuilder;
 use Magento\Framework\App\DeploymentConfig;
 use Magento\Framework\App\Area;
-use Magento\Store\Model\ScopeInterface;
+use Magento\Store\Model\Store;
 use Psr\Log\LoggerInterface;
 
 class Notification
