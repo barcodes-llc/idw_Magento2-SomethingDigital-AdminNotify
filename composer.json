@@ -3,11 +3,11 @@
     "description": "A module to alert an email address on a successful/failed login attempt.",
     "require": {
         "php": "7.0.2||7.0.4||~7.0.6||~7.1.0||~7.2.0||~7.3.0||~7.4.0",
-        "magento/module-store": ">=100.0.0",
-        "magento/module-user": ">=100.1.0||~101.0.0"
+        "magento/module-store": ">=100.0.0||~101.1.0",
+        "magento/module-user": ">=100.1.0||~101.0.0||~101.2.0"
     },
     "type": "magento2-module",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "license": [],
     "autoload": {
         "files": [
